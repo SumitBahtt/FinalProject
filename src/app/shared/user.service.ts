@@ -11,7 +11,7 @@ export class UserService {
 
   registerUser(user: User) {
     const body: User = {
-      UserName: user.UserName,
+      UserId: user.UserId,
       Password: user.Password,
       Email: user.Email,
       FirstName: user.FirstName,
@@ -21,8 +21,8 @@ export class UserService {
     return this.http.post(this.rootUrl + '/api/User/Register', body,{headers : reqHeader});
   }
 
-  userAuthentication(userName, password) {
-    var data = "username=" + userName + "&password=" + password + "&grant_type=password";
+  userAuthentication(UserId, password) {
+    var data = "UserId=" + UserId + "&password=" + password + "&grant_type=password";
     var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True' });
     return this.http.post(this.rootUrl + '/token', data, { headers: reqHeader });
   }
